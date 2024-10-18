@@ -1,0 +1,22 @@
+{% extends "page.html" %}
+{% load static %}
+{% block title %}Система тестирования для образовательных учреждений{% endblock %}
+{% block contentTitle %}{% endblock %}
+
+
+{% block loadReactPageFiles %}
+<link href="{% static 'staff/Dashboard/Dashboard.css' %}" rel="stylesheet"/>
+<script src="{% static 'staff/Dashboard/Dashboard.js' %}" type='text/babel'></script>
+{% endblock %}
+
+{% block content %}
+<div id="staff-page"></div>
+{% endblock %}
+
+{% block loadReactPageComponent %}
+<script type='text/babel'>
+    const token = '{{csrf_token}}';
+    const domContainer = document.querySelector('#staff-page');
+    ReactDOM.render(<Dashboard token={token}/>, domContainer);
+</script>
+{% endblock %}

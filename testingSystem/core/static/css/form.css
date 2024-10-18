@@ -1,0 +1,20 @@
+input, textarea {
+    padding: 5px 10px;
+    border: solid 1px #bec4d5;
+    border-radius: 5px;
+    font-size: 1.5em;
+}
+.span-link {
+    color: #364364;
+    border-bottom: dotted 1px #364364;
+    cursor: pointer;
+}
+button {
+    padding: 5px 10px;
+    border: double 4px #FAFAFA;
+    border-radius: 5px;
+    font-size: 1.5em;
+    background: #0094D9;
+    color: #FAFAFA;
+    cursor: pointer;
+}

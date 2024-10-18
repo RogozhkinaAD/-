@@ -1,0 +1,86 @@
+.student-name {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #0094D9;
+}
+.student-org {
+    text-align: center;
+    font-size: 0.8em;
+    padding-bottom: 20px;
+}
+.sections {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.sections>div {
+    width: 50%;
+}
+.sections .section-title {
+    padding: 0 10px 20px 10px;
+    text-align: center;
+    font-size: 1.5em;
+}
+.sections .section-list {
+    padding: 0 10px;
+}
+.task-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: solid 1px #364364;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px 2px rgba(54, 67, 100, 0.2) inset;
+}
+.task-row:hover {background: #d9ecf4;}
+.task-row .subject-name {
+    color: #666666;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+.task-row .task-name {
+    font-size: 1.2em;
+    height: 38px;
+    overflow: hidden;
+}
+.task-row .timer {
+    color: #666666;
+    font-size: 0.8em;
+}
+.task-row .timer span {
+    color: #FF0000;
+}
+.task-row>div:first-child {
+    width: calc(100% - 64px);
+}
+.task-row.new-task-row img {
+    width: 64px
+}
+
+.task-row .task-result {
+    color: #666666;
+    font-size: 0.8em;
+}
+.task-row .task-result span {
+    font-weight: bold;
+}
+.task-row .task-grade {
+    font-size: 2em;
+    font-weight: bold;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-row .color-1 {color: #FF0000;}
+.task-row .color-2 {color: #FF0000;}
+.task-row .color-3 {color: #FFA500;}
+.task-row .color-4 {color: #0000FF;}
+.task-row .color-5 {color: #008000;}

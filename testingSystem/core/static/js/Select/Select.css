@@ -1,0 +1,44 @@
+.select-im {
+    position: relative;
+}
+.select-im .visible {
+    padding: 3px 24px 3px 4px;
+    border: solid 1px #bec4d5;
+    border-radius: 3px;
+    width: 169px;
+    height: 15px;
+    cursor: pointer;
+    background: #FFFFFF;
+    position: relative;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.select-im .visible img {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.select-im .drop-down {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background: #FFFFFF;
+    padding: 3px;
+    border: solid 1px #bec4d5;
+    border-radius: 3px;
+}
+.select-im .drop-down .dd-row {
+    cursor: pointer;
+    border-bottom: solid 1px #bec4d5;
+    padding-bottom: 3px;
+    text-align: center;
+}
+.select-im .drop-down .dd-row:last-child {
+    border: none;
+    padding-bottom: 0;
+}

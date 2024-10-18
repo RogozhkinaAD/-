@@ -1,0 +1,13 @@
+.find-wrapper {
+    padding-bottom: 10px;
+    position: relative;
+}
+.find-wrapper img {
+    position: absolute;
+    top: 3px;
+    left: 4px;
+}
+.find-wrapper input {
+    width: calc(100% - 40px);
+    padding: 5px 10px 5px 25px;
+}

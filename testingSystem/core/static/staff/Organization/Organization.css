@@ -1,0 +1,101 @@
+.org-deleted { color: #FF0000; }
+.org-contacts {
+    font-weight: normal;
+    font-size: 0.7em;
+    color: #364364;
+    margin-left: 30px;
+}
+
+#organization-container {
+    padding-top: 10px;
+}
+
+.teacher-settings {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+.teachers-list {
+    width: 300px;
+    border-right: solid 1px #DAE2F5;
+}
+.teacher-list-row {
+    padding: 5px;
+    border-bottom: solid 1px #DAE2F5;
+    cursor: pointer;
+}
+.teacher-list-row.selected {
+    background: #DAE2F5;
+}
+.teacher-wrapper {
+    width: 100%;
+    padding: 10px;
+}
+.tw-selected-fio {
+    color: #0094D9;
+    font-weight: bold;
+    font-size: 1em;
+    padding-bottom: 10px;
+}
+.tw-flex-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+.tw-section {
+    border-right: solid 1px #DAE2F5;
+}
+.tws-title {
+    padding: 5px 20px;
+    font-weight: bold;
+    background: #DAE2F5;
+}
+.tws-row {
+    padding: 5px 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.tws-row img {
+    width: 24px;
+    margin-right: 5px;
+}
+.taks-menu-buttons img {
+    margin-right: 5px;
+}
+
+.task-table .table-ceil.subject { min-width: 150px; }
+.task-table .table-ceil.name { width: 100%; }
+.task-table .table-ceil.teacher { min-width: 250px; }
+.task-table .table-ceil.in_production { min-width: 50px; text-align: center; }
+.task-table .table-ceil.in_production img { width: 32px; }
+
+.task-table .table-row:last-child {
+    border-bottom: solid 1px #bec4d5;
+}
+.task-table .table-row.in-prod { border-bottom: none; }
+
+.in-production-wrapper {
+    padding: 5px 10px;
+    border-bottom: solid 1px #bec4d5;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.in-production-wrapper>div {
+    padding: 10px;
+}
+.in-production-wrapper .ip-title {
+    border-bottom: solid 1px #bec4d5;
+    font-weight: bold;
+}
+.in-production-wrapper .ip-ac-list,
+.in-production-wrapper .ip-sc-list {
+    padding: 10px 0;
+}
+.in-production-wrapper .ip-ac-list>div,
+.in-production-wrapper .ip-sc-list>div {
+    padding: 5px 0;
+    cursor: pointer;
+}

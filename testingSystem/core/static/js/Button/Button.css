@@ -1,0 +1,7 @@
+.img-button {
+    cursor: pointer;
+}
+.img-button.w24 { width: 24px; }
+.img-button.w32 { width: 32px; }
+.img-button.w40 { width: 40px; }
+.img-button.w48 { width: 48px; }

@@ -1,0 +1,17 @@
+#auth-form-wrapper {
+    width: 400px;
+    margin: 200px auto 0 auto;
+}
+
+#auth-form-wrapper .row {
+    padding-bottom: 10px;
+}
+#auth-form-wrapper .row input {
+    width: 380px;
+}
+#auth-form-wrapper .row button {
+    width: 403px;
+}
+#auth-form-wrapper .row-title {
+    width: 403px;
+}

@@ -1,0 +1,137 @@
+.task-form-title {
+    color: #0094D9;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.task-form-title img {
+    margin-left: 10px;
+}
+.task-form-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.task-form-row-title {
+    font-weight: bold;
+    width: 100px;
+    padding-bottom: 10px;
+}
+.task-form-row-content {
+    width: calc(100% - 110px);
+    margin-bottom: 10px;
+}
+.task-form-row-content.block {
+    border: solid 1px #bec4d5;
+    border-radius: 3px;
+    padding: 10px;
+}
+.task-form-row-content.subject-selector .select-im { width: 500px; }
+.task-form-row-content.subject-selector .select-im .drop-down .dd-row { text-align: left; }
+
+.task-editor-form {
+    border: solid 1px #bec4d5;
+    border-radius: 3px;
+    padding: 10px;
+}
+.task-editor-form input,
+.task-editor-form textarea {
+    width: 100%;
+}
+.task-editor-row {
+    padding-bottom: 10px;
+}
+.task-editor-row .type-selected-title {
+    font-weight: bold;
+    color: #0094D9;
+}
+.task-editor-row.select-type {
+    width: 700px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.task-editor-row.select-type > div { margin-right: 10px; }
+.task-editor-row.select-type .select-im { width: 500px; }
+.task-editor-row.select-type .select-im .drop-down .dd-row { text-align: left; }
+.task-form-row-content .content-view-row {
+    padding: 5px;
+    border: solid 1px #bec4d5;
+    border-radius: 3px;
+    margin-top: 5px;
+}
+
+.simple-select-row {
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.simple-select-row > div:first-child {
+    width: 70px;
+}
+.simple-select-row.answers div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.simple-select-row.answers div input {
+    margin-left: 5px;
+}
+
+.simple-select-view {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.simple-select-view > div > div {
+    padding-bottom: 5px;
+}
+.simple-select-view .id-buttons {
+    font-weight: bold;
+    padding-right: 10px;
+}
+.simple-select-view .question span,
+.simple-select-view .answers span {
+    font-weight: bold;
+}
+
+.tfrc-criteria-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 5px;
+}
+.tfrc-criteria-row input {
+    width: 30px;
+}
+.tfrc-criteria-row div:first-child {
+    padding-right: 5px;
+}
+.tfrc-criteria-row div:last-child {
+    padding-left: 5px;
+}
+
+.simple-answer-row {
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.simple-answer-row > div:first-child {
+    width: 70px;
+}
+.simple-answer-row.check-by-teacher {
+    align-items: center;
+}
+.simple-answer-row.answers div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.simple-answer-row.answers div input {
+    margin-left: 5px;
+}

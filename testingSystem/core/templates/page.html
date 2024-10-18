@@ -1,0 +1,95 @@
+{% load static %}
+{% load auth_extras %}
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+
+
+        <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
+        <link href="{% static 'css/table.css' %}" rel="stylesheet"/>
+        <link href="{% static 'css/tabs.css' %}" rel="stylesheet"/>
+        <script src="{% static 'js/utils.js' %}" crossorigin></script>
+
+        {% if user|personal_or_staff %}
+        <link href="{% static 'css/adm-form.css' %}" rel="stylesheet"/>
+        {% else %}
+        <link href="{% static 'css/form.css' %}" rel="stylesheet"/>
+        {% endif %}
+        <!--
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        -->
+        <script src="/static/js/babel/react.development.js" crossorigin></script>
+        <script src="/static/js/babel/react-dom.development.js" crossorigin></script>
+        <script src="/static/js/babel/babel.min.js"></script>
+
+        <link href="{% static 'js/Loader/loader.css' %}" rel="stylesheet"/>
+        <script src="{% static 'js/Loader/loader.js' %}" type='text/babel'></script>
+        <link href="{% static 'js/Button/Button.css' %}" rel="stylesheet"/>
+        <script src="{% static 'js/Button/Button.js' %}" type='text/babel'></script>
+
+        {% if user|personal_or_staff %}
+        <link href="{% static 'js/Search/Search.css' %}" rel="stylesheet"/>
+        <script src="{% static 'js/Search/Search.js' %}" type='text/babel'></script>
+        <link href="{% static 'js/Select/Select.css' %}" rel="stylesheet"/>
+        <script src="{% static 'js/Select/Select.js' %}" type='text/babel'></script>
+        <link href="{% static 'js/Checkbox/Checkbox.css' %}" rel="stylesheet"/>
+        <script src="{% static 'js/Checkbox/Checkbox.js' %}" type='text/babel'></script>
+        {% else %}
+        {% endif %}
+
+        <title>{% block title %}{% endblock %}</title>
+        {% block loadReactPageFiles %}{% endblock %}
+    </head>
+    <body>
+        <div id="header-container">
+            <div class="header-title">
+                <a href="/">
+                    <img src="/static/images/favicon.svg" title="Система тестирования для образовательных учреждений"/>
+                </a>
+            </div>
+            {% if user.is_authenticated %}
+            <div class="header-menu-wrapper">
+                {% if not user|has_group:"student" %}
+                <div class="header-menu">
+                    {% if user.is_staff %}
+                        <a href="/" class="{{ request|get_menu_selected:'/' }}">Организации</a>
+                        <a href="/admin/" target="_blank">Админ панель</a>
+                    {% endif %}
+                    {% if user|has_group:"admin" %}
+                    <a href="/" class="{{ request|get_menu_selected:'/' }}">Руководство</a>
+                        <a href="/personal/teachers" class="{{ request|get_menu_selected:'/personal/teachers' }}">Пед. состав</a>
+                        <a href="/personal/students" class="{{ request|get_menu_selected:'/personal/students' }}">Ученики</a>
+                        <a href="/personal/classes" class="{{ request|get_menu_selected:'/personal/classes' }}">Классы</a>
+                        <a href="/personal/subjects" class="{{ request|get_menu_selected:'/personal/subjects' }}">Предметы</a>
+                        <a href="/personal/tasks" class="{{ request|get_menu_selected:'/personal/tasks' }}">Задания</a>
+                    {% endif %}
+                    {% if user|has_group:"teacher" %}
+                        <a href="/" class="{{ request|get_menu_selected:'/' }}">Задания</a>
+                        <a href="/personal/students" class="{{ request|get_menu_selected:'/personal/students' }}">Ученики</a>
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+            {% endif %}
+            {% if user.is_authenticated %}
+            <div class="header-user">
+                <div>
+                    {{ user.first_name|replace_name }} {{user.last_name}}
+                    <div>{{user.username}}</div>
+                </div>
+                <a href = '/user/logout' title="Выход"><img src="/static/images/logout.svg"/></a>
+            </div>
+            {% endif %}
+        </div>
+        <div id="body-content">
+            <div id="content-title">{% block contentTitle %}{% endblock %}</div>
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>
+{% block loadReactPageComponent %}{% endblock %}

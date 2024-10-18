@@ -1,0 +1,27 @@
+{% extends "page.html" %}
+{% load static %}
+{% block title %}Система тестирования для образовательных учреждений{% endblock %}
+
+{% block loadReactPageFiles %}
+<link href="{% static 'student/TaskSimpleSelect/TaskSimpleSelect.css' %}" rel="stylesheet"/>
+<script src="{% static 'student/TaskSimpleSelect/TaskSimpleSelect.js' %}" type='text/babel'></script>
+<link href="{% static 'student/TaskSimpleAnswer/TaskSimpleAnswer.css' %}" rel="stylesheet"/>
+<script src="{% static 'student/TaskSimpleAnswer/TaskSimpleAnswer.js' %}" type='text/babel'></script>
+
+<link href="{% static 'student/Task/Task.css' %}" rel="stylesheet"/>
+<script src="{% static 'student/Task/Task.js' %}" type='text/babel'></script>
+{% endblock %}
+
+
+{% block content %}
+<div id="page"></div>
+{% endblock %}
+
+{% block loadReactPageComponent %}
+<script type='text/babel'>
+    const token = '{{csrf_token}}';
+    const id = '{{id}}';
+    const domContainer = document.querySelector('#page');
+    ReactDOM.render(<Task token={token} id={id}/>, domContainer);
+</script>
+{% endblock %}

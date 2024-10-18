@@ -1,0 +1,32 @@
+{% extends "page.html" %}
+{% load static %}
+{% block title %}{% if access == 'staff' %}#{{ id }} {% endif %}{{ name }}{% endblock %}
+{% block contentTitle %}
+    {% if task_id == 0 %}
+        Новое задание
+    {% else %}
+        Редактирование задания # {{ task_id }}
+    {% endif %}
+{% endblock %}
+
+{% block loadReactPageFiles %}
+<link href="{% static 'personal/TaskManager/TaskManager.css' %}" rel="stylesheet"/>
+<script src="{% static 'personal/TaskManager/TaskManager.js' %}" type='text/babel'></script>
+{% endblock %}
+
+
+{% block content %}
+<div id="staff-org-page"></div>
+{% endblock %}
+
+{% block loadReactPageComponent %}
+<script type='text/babel'>
+    const token = '{{csrf_token}}';
+    const deleted = {% if deleted %}true{% else %}false{% endif %};
+    const access = '{{ access }}';
+    const task_id = {% if task_id == 0 %}null{% else %}{{ task_id }}{% endif %};
+
+    const domContainer = document.querySelector('#staff-org-page');
+    ReactDOM.render(<TaskManager token={token} deleted={deleted} access={access} id={task_id}/>, domContainer);
+</script>
+{% endblock %}

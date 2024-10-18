@@ -1,0 +1,11 @@
+#dashboard-container {
+    padding-top: 20px;
+}
+
+.table-ceil.name,
+.table-ceil.address {
+    width: calc(50% - 42px - 42px);
+}
+.table-ceil.phone {
+    width: 150px;
+}

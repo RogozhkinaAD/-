@@ -1,0 +1,66 @@
+.task-title {
+    font-size: 1.5em;
+}
+.task-title span {
+    font-weight: bold;
+}
+.task-results-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 10px;
+}
+.classes-list {
+    width: 70px;
+    padding-right: 20px;
+
+}
+.classes-results {
+    width: 100%;
+}
+.trc-title {
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: 1.25em;
+}
+.classes-row {
+    padding: 5px;
+    cursor: pointer;
+}
+.classes-row.selected {
+    background: #DAE2F5;
+    font-weight: bold;
+}
+
+.results-table {
+    width: 1010px;
+}
+.table-ceil.name {
+    width: 500px;
+}
+.table-ceil.colspan {
+    width: 490px;
+    text-align: center;
+    background: #bec4d5;
+}
+.table-ceil.percent,
+.table-ceil.grade,
+.table-ceil.actions {
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+}
+.table-ceil.date {
+    width: 150px;
+    text-align: center;
+}
+.table-ceil.actions.in-body {
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+.table-ceil.color-1 {background: #FF0000; color: #FFFFFF;}
+.table-ceil.color-2 {background: #FF0000; color: #FFFFFF;}
+.table-ceil.color-3 {background: #FFA500; color: #FFFFFF;}
+.table-ceil.color-4 {background: #0000FF; color: #FFFFFF;}
+.table-ceil.color-5 {background: #008000; color: #FFFFFF;}

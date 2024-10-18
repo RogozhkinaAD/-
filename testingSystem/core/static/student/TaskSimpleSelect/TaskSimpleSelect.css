@@ -1,0 +1,17 @@
+.simple-select-wrapper {
+    padding: 10px 30px;
+}
+.question {
+    padding-bottom: 30px;
+}
+.answer-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.answer-row img {
+    width: 48px;
+    padding-right: 10px;
+}

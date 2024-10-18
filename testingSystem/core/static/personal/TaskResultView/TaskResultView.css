@@ -1,0 +1,78 @@
+.bold {
+    font-weight: bold;
+}
+
+.student-info {
+    font-size: 1.5em;
+    padding-bottom: 10px;
+}
+.student-info span {
+    font-weight: bold;
+}
+
+.task-info {
+    font-size: 1.5em;
+    padding-bottom: 10px;
+}
+.task-info span {
+    font-weight: bold;
+}
+.task-description {
+    border: solid 1px #bec4d5;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+.task-questions { margin-top: 10px; }
+
+.question-row {
+    border: solid 1px;
+    border-radius: 3px;
+    padding: 10px;
+    margin-top: 10px;
+}
+.q-question { padding-bottom: 5px; }
+.question-row.correct-true {border-color: #008000;}
+.question-row.correct-false {border-color: #FF0000;}
+.question-row.correct-none {border-color: #0000FF;}
+.q-student-answer.correct-true b {color: #008000;}
+.q-student-answer.correct-false b {color: #FF0000;}
+.q-student-answer.correct-none b {color: #0000FF;}
+.color-1 {color: #FF0000;}
+.color-2 {color: #FF0000;}
+.color-3 {color: #FFA500;}
+.color-4 {color: #0000FF;}
+.color-5 {color: #008000;}
+
+.table-ceil.student-res,
+.table-ceil.true-res {
+    width: 70px;
+    text-align: center;
+}
+.table-ceil.variant {
+    width: 100%;
+}
+.a-row img { width: 24px; }
+
+.q-variants-answer,
+.teacher-check-block {
+    padding-top: 10px;
+}
+.teacher-check-block img {
+    margin-right: 20px;
+}
+
+.teacher-check-wrapper {
+    padding-top: 10px;
+}
+.teacher-check-wrapper button {
+    background: #0094D9;
+    color: #FFFFFF;
+    border: solid 1px #0094D9;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.teacher-check-wrapper input {
+    width: 20px;
+    text-align: center;
+}

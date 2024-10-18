@@ -1,0 +1,25 @@
+.adm-form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 10px;
+    border: solid 1px #bec4d5;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+.adm-form-ceil {
+    padding: 0 10px;
+}
+.adm-form-ceil div:first-child {
+    font-size: 0.9em;
+}
+input, textarea {
+    padding: 3px 4px;
+    border: solid 1px #bec4d5;
+    border-radius: 3px;
+}
+.span-link {
+    color: #364364;
+    border-bottom: dotted 1px #364364;
+    cursor: pointer;
+}

@@ -1,0 +1,65 @@
+.personal-table .table-ceil.email,
+.personal-table .table-ceil.login {
+    width: 300px;
+}
+.personal-table .table-ceil.name {
+    width: calc(100% - 640px);
+}
+.new-pass {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 10px;
+}
+.new-pass span {
+    background: #DAE2F5;
+    padding: 3px 5px;
+    border-radius: 3px;
+    margin: 0 5px;
+}
+
+.teacher-settings-shadow {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(102, 102, 102, 0.7);
+    z-index: 5;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.teacher-settings-wrapper {
+    width: 1000px;
+    padding: 20px;
+    background: #FAFAFA;
+    border: solid 1px #bec4d5;
+    border-radius: 5px;
+}
+.teacher-settings-title {
+    padding-bottom: 20px;
+    border-bottom: solid 1px #bec4d5;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.teacher-settings-title-text {
+    width: 100%;
+}
+.teacher-settings-container {
+    padding-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.teacher-settings-container>div {
+    width: 50%;
+}
+.teacher-settings-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}

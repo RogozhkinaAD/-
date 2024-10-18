@@ -1,0 +1,39 @@
+.taks-menu-buttons img {
+    margin-right: 5px;
+}
+
+.task-table .table-ceil.subject { min-width: 150px; }
+.task-table .table-ceil.name { width: 100%; }
+.task-table .table-ceil.teacher { min-width: 250px; }
+.task-table .table-ceil.in_production { min-width: 50px; text-align: center; }
+.task-table .table-ceil.in_production img { width: 32px; }
+
+.task-table .table-row:last-child {
+    border-bottom: solid 1px #bec4d5;
+}
+.task-table .table-row.in-prod { border-bottom: none; }
+.task-table .table-row.need-check { background: #0080001a; }
+
+.in-production-wrapper {
+    padding: 5px 10px;
+    border-bottom: solid 1px #bec4d5;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.in-production-wrapper>div {
+    padding: 10px;
+}
+.in-production-wrapper .ip-title {
+    border-bottom: solid 1px #bec4d5;
+    font-weight: bold;
+}
+.in-production-wrapper .ip-ac-list,
+.in-production-wrapper .ip-sc-list {
+    padding: 10px 0;
+}
+.in-production-wrapper .ip-ac-list>div,
+.in-production-wrapper .ip-sc-list>div {
+    padding: 5px 0;
+    cursor: pointer;
+}

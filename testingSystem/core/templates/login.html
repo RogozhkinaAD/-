@@ -1,0 +1,20 @@
+{% extends "page.html" %}
+{% load static %}
+{% block title %}Авторизация{% endblock %}
+
+{% block loadReactPageFiles %}
+<link href="{% static 'js/AuthForm/AuthForm.css' %}" rel="stylesheet"/>
+<script src="{% static 'js/AuthForm/AuthForm.js' %}" type='text/babel'></script>
+{% endblock %}
+
+{% block content %}
+<div id="auth-page"></div>
+{% endblock %}
+
+{% block loadReactPageComponent %}
+<script type='text/babel'>
+    const token = '{{csrf_token}}';
+    const domContainer = document.querySelector('#auth-page');
+    ReactDOM.render(<AuthForm token={token}/>, domContainer);
+</script>
+{% endblock %}

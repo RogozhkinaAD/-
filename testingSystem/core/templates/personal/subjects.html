@@ -1,0 +1,34 @@
+{% extends "page.html" %}
+{% load static %}
+{% block title %}Учащиеся {{ name }}{% endblock %}
+{% block contentTitle %}
+    {% if deleted == 0 %}
+        {{ name }}
+    {% else %}
+        <span class="org-deleted">{{ name }} <sup>(Удалена)</sup></span>
+    {% endif %}
+    <span class="org-contacts">{{address}}, {{phoneFormated}}</span>
+    <span class="org-contacts">ID: {{id}}</span>
+{% endblock %}
+
+{% block loadReactPageFiles %}
+<link href="{% static 'personal/Subjects/Subjects.css' %}" rel="stylesheet"/>
+<script src="{% static 'personal/Subjects/Subjects.js' %}" type='text/babel'></script>
+{% endblock %}
+
+
+{% block content %}
+<div id="staff-org-page"></div>
+{% endblock %}
+
+{% block loadReactPageComponent %}
+<script type='text/babel'>
+    const token = '{{csrf_token}}';
+    const id = {{ id }};
+    const deleted = {% if deleted %}true{% else %}false{% endif %};
+    const access = '{{ access }}';
+
+    const domContainer = document.querySelector('#staff-org-page');
+    ReactDOM.render(<Subjects token={token} id={id} deleted={deleted} access={access}/>, domContainer);
+</script>
+{% endblock %}
