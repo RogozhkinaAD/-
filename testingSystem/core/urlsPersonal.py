@@ -10,6 +10,9 @@ urlpatterns = [
     path("delete", viewsPersonal.personalDelete),
     path("restore", viewsPersonal.personalRestore),
 
+    path("results", viewsPersonal.resultsPage),
+    path("results/list", viewsPersonal.resultsList),
+
     path("teachers/list", viewsPersonal.teachersList),
     path("teacher/settings", viewsPersonal.teacherSettings),
     path("teacher/settings/save", viewsPersonal.teacherSettingsSave),

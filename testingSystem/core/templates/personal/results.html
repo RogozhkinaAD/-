@@ -1,20 +1,20 @@
-
 {% extends "page.html" %}
 {% load static %}
 {% block title %}{% if access == 'staff' %}#{{ id }} {% endif %}{{ name }}{% endblock %}
 {% block contentTitle %}
-    {% if deleted == 0 %}
-        {{ name }}
-    {% else %}
-        <span class="org-deleted">{{ name }} <sup>(Удалена)</sup></span>
-    {% endif %}
-    <span class="org-contacts">{{address}}, {{phoneFormated}}</span>
-    <span class="org-contacts">ID: {{id}}</span>
+{% if deleted == 0 %}
+{{ name }}
+{% else %}
+<span class="org-deleted">{{ name }} <sup>(Удалена)</sup></span>
+{% endif %}
+<span class="org-contacts">{{address}}, {{phoneFormated}}</span>
+<span class="org-contacts">ID: {{id}}</span>
 {% endblock %}
 
 {% block loadReactPageFiles %}
-<link href="{% static 'personal/Teachers/Teachers.css' %}" rel="stylesheet"/>
-<script src="{% static 'personal/Teachers/Teachers.js' %}" type='text/babel'></script>
+<script src="{% static 'js/g_charts.js' %}"></script>
+<link href="{% static 'personal/Results/Results.css' %}" rel="stylesheet"/>
+<script src="{% static 'personal/Results/Results.js' %}" type='text/babel'></script>
 {% endblock %}
 
 
@@ -25,10 +25,11 @@
 {% block loadReactPageComponent %}
 <script type='text/babel'>
     const token = '{{csrf_token}}';
+    const id = {{ id }};
     const deleted = {% if deleted %}true{% else %}false{% endif %};
     const access = '{{ access }}';
 
     const domContainer = document.querySelector('#staff-org-page');
-    ReactDOM.render(<Teachers token={token} deleted={deleted} access={access}/>, domContainer);
+    ReactDOM.render(<Results token={token} id={id} deleted={deleted} access={access}/>, domContainer);
 </script>
 {% endblock %}

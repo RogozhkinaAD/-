@@ -5,7 +5,6 @@ from core.conrollers.AdminPersonalController import AdminPersonalController
 from core.conrollers.TeacherPersonalController import TeacherPersonalController
 
 
-
 def teachersPage(request):
     try:
         return PersonalController(request).personalPage(UserGroup.Teacher.value)
@@ -41,6 +40,27 @@ def personalRestore(request):
         return AdminPersonalController(request).personalRestore()
     except Exception as e:
         return Response().notFoundJson()
+
+def resultsPage(request):
+    if not request.access.is_admin and not request.access.is_teacher:
+        return Response().notFoundHtml()
+    try:
+        return PersonalController(request).resultsPage()
+    except Exception as e:
+        return Response().notFoundHtml()
+
+def resultsList(request):
+    return PersonalController(request).resultsList()
+    if not request.access.is_admin and not request.access.is_teacher:
+        print('NF 1')
+        return Response().notFoundHtml()
+    try:
+        print('OK')
+        return PersonalController(request).resultsList()
+    except Exception as e:
+        print('NF 2' , e)
+        return Response().notFoundHtml()
+
 
 
 def teachersList(request):
@@ -217,6 +237,7 @@ def taskViewCompleteGet(request, id, uid):
         return Response().notFoundJson()
 
 def taskCalcGrade(request, id, uid):
+    return TeacherPersonalController(request).taskCalcGrade(id, uid)
     try:
         return TeacherPersonalController(request).taskCalcGrade(id, uid)
     except Exception as e:

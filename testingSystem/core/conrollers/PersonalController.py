@@ -10,6 +10,7 @@ from core.models import OrganizationPersonal
 from core.models import TeacherSettings
 from core.models import TaskToClasses
 from core.models import Tasks
+from core.models import TaskResults
 import json
 
 class PersonalController:
@@ -35,10 +36,77 @@ class PersonalController:
                 'access': self.access_text
             }
 
-
     def personalPage(self, type):
         template = 'admin' if type == UserGroup.Admin.value else 'teacher'
         return Response().html(self.request, 'personal/' + template + 's.html', self.context)
+
+    def resultsPage(self):
+        return Response().html(self.request, 'personal/results.html', self.context)
+
+    def resultsList(self):
+        if self.request.access.isAdmin():
+            tasksRes = Tasks.objects.filter(org_id=self.org_id)
+            classesRes = OrganizationClasses.objects.filter(org_id=self.org_id)
+        else:
+            settings = self._getTeacherSetting(self.uid)
+            tasksRes = Tasks.objects.filter(org_id=self.org_id, author=self.uid)
+            classesRes = OrganizationClasses.objects.filter(org_id=self.org_id, id__in=settings.settings['classes'])
+
+        classes = {}
+        for cl in classesRes:
+            classes[cl.id] = {'id': cl.id, 'name': cl.name}
+
+        task_ids = []
+        subject_ids = []
+        teacher_ids = []
+        tasks = {}
+        for t in tasksRes:
+            task_ids.append(t.id)
+            subject_ids.append(t.subject_id)
+            teacher_ids.append(t.author)
+            tasks[t.id] = {'subject_id': t.subject_id, 'author': t.author}
+
+        subjectsRes = OrganizationSubjects.objects.filter(org_id=self.org_id, id__in=subject_ids)
+        subjects = {}
+        for s in subjectsRes:
+            subjects[s.id] = {'id': s.id, 'name': s.name}
+
+        teachers = {}
+        if self.request.access.isAdmin():
+            teachersRes = User.objects.filter(id__in=teacher_ids)
+            for user in teachersRes:
+                user_ar = Utils().userToJsonObject(user)
+                teachers[user.id] = {'id': user_ar['id'], 'name': user_ar['last_name'] + " " + user_ar['first_name'] + " " + user_ar['second_name']}
+
+        task_results = TaskResults.objects.filter(task_id__in=task_ids)
+
+        student_ids = [tr['uid'] for tr in task_results.values()]
+        orgStudRes = OrganizationStudents.objects.filter(uid__in=student_ids)
+        stud2cl = {}
+        for st_cl in orgStudRes:
+            stud2cl[st_cl.uid] = st_cl.cl_id
+
+
+        res_list = []
+        for tr in task_results:
+            res_list.append(
+                {
+                    'percent': tr.percent,
+                    'grade': tr.grade,
+                    'subject': tasks[tr.task_id]['subject_id'],
+                    'teacher': tasks[tr.task_id]['author'],
+                    'class': stud2cl[tr.uid]
+                }
+            )
+
+        return Response().jsonOk(
+            {
+                'list': res_list,
+                'teachers': list(teachers.values()),
+                'subjects': list(subjects.values()),
+                'classes': list(classes.values()),
+            }
+        )
 
 
     def studentsPage(self):
@@ -217,6 +285,8 @@ class PersonalController:
         t2cs = TaskToClasses.objects.filter(task_id__in=task_ids)
         t2c = {}
         for t in t2cs:
+            if t.class_id not in cl_dict:
+                continue;
             task_id = int(t.task_id)
             if task_id not in t2c:
                 t2c[task_id] = []

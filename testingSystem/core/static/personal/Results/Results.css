@@ -1,0 +1,15 @@
+#chart {
+    height: 450px;
+}
+
+.graph-type-switch span {
+    margin-right: 10px;
+}
+.graph-type-switch span.span-a {
+    cursor: pointer;
+    border-bottom: dotted 1px #364364;
+}
+.graph-type-switch span.span-a.active {
+    color: #0094D9;
+    border-bottom: dotted 1px #0094D9;
+}

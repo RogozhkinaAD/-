@@ -67,10 +67,12 @@
                         <a href="/personal/classes" class="{{ request|get_menu_selected:'/personal/classes' }}">Классы</a>
                         <a href="/personal/subjects" class="{{ request|get_menu_selected:'/personal/subjects' }}">Предметы</a>
                         <a href="/personal/tasks" class="{{ request|get_menu_selected:'/personal/tasks' }}">Задания</a>
+                        <a href="/personal/results" class="{{ request|get_menu_selected:'/personal/results' }}">Успеваемость</a>
                     {% endif %}
                     {% if user|has_group:"teacher" %}
                         <a href="/" class="{{ request|get_menu_selected:'/' }}">Задания</a>
                         <a href="/personal/students" class="{{ request|get_menu_selected:'/personal/students' }}">Ученики</a>
+                        <a href="/personal/results" class="{{ request|get_menu_selected:'/personal/results' }}">Успеваемость</a>
                     {% endif %}
                 </div>
                 {% endif %}
